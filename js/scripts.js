@@ -33,20 +33,14 @@ console.log(item.name.first)
   //add each rsult to card
   $.each(results,function(i,item){
     const name = item.name.first+','+item.name.last;
+    const email = item.email;
+    const cityState = item.location.city +','+ item.location.state;
+    const pictureMed = item.picture.medium;
     const cardGallery = $(".gallery");
-    console.log(name) 
-// image place holder that goes insed card '<img class="card-img" src="https://placehold.it/90x90" alt="profile picture"></img>'
-   /* var Cardhtml ='<div class="card"> + 
-              '<div class="card-img-container"><img class="card-img" src="https://placehold.it/90x90" alt="profile picture"></img></div>'+
-                  '<div class="card-info-container">' +           
-                  '<h3 id="name" class="card-name cap">name</h3>'+
-                  '<p class="card-text">email</p>'+
-                  
-                  '<p class="card-text cap">city, state</p>'+
-                    '</div>'   ;
-                    */
+    console.log(item)
+
                     
-      const    Cardhtml     =     '<div class="card"><div class="card-img-container"><img class="card-img" src="https://placehold.it/90x90" alt="profile picture"></div>       <div class="card-info-container"><h3 id="name" class="card-name cap">first last</h3><p class="card-text">email</p><p class="card-text cap">city, state</p></div></div></div> '  
+      const    Cardhtml     =    '<div class="card"><div class="card-img-container"><img class="card-img" src="'+pictureMed+'" alt="profile picture"></div>       <div class="card-info-container"><h3 id="name" class="card-name cap">'+name+'</h3><p class="card-text">'+email+'</p><p class="card-text cap">'+cityState+'</p></div></div></div> '  
       
     
       
@@ -54,7 +48,6 @@ console.log(item.name.first)
       
       const cardName = $("#name");
 
-console.log(Cardhtml);
       cardName.text(name)
 
    }
@@ -69,7 +62,7 @@ console.log(Cardhtml);
     .then(res => res.json())
     
     .then(out => out.results)
-    .then( $("#name").text(''))
+    .then( $("#name").text(''))//WHERE SHOULD I REALLY PLACE THIS
     .then((results) =>  getResults(results));
 
       
