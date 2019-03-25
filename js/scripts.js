@@ -4,7 +4,7 @@
  
  
   
-  //add each rsult to card
+  //add each result to card
   $.each(results,function(i,item){
     const name = item.name.first+','+item.name.last;
     const email = item.email;
@@ -21,7 +21,7 @@
 
     
       
-    Cardhtml     =    `<div id = "card-${[i]}" class="card"><div class="card-img-container">
+    Cardhtml     =   `<div id = "card-${[i]}" class="card"><div class="card-img-container">
                       <img class="card-img" src="${pictureLrg}" alt="profile picture"></div>       
                       <div class="card-info-container">
                       <h3 id="name" class="card-name cap">${name}</h3>
@@ -36,19 +36,23 @@
 
 
       
-     const modalContainerhtml = `<div id = "cardContainer-${[i]}" class="modal-container">
-                                <div class="modal"></div>
-                                </div><button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong>
-                                </button><div class="modal-info-container">
-                                <img class="modal-img" src="${pictureLrg}" alt="profile picture">
-                                <h3 id="name" class="modal-name cap">${name}</h3>
-                                <p class="modal-text">${email}</p>
-                                <p class="modal-text cap">${city}</p><hr>
-                                <p class="modal-text">${phone}</p>
-                                <p class="modal-text">${fullAddress}</p>
-                                <p class="modal-text">Brithday:${dob}</p>
-                                </div>
-                                </div>`
+     const modalContainerhtml =  `<div id = "cardContainer-${[i]}" class="modal-container">
+                                  <div class="modal">
+                                  <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+                                  <div class="modal-info-container">
+                                  <img class="modal-img" src="${pictureLrg}" alt="profile picture">
+                                  <h3 id="name" class="modal-name cap">${name}</h3>
+                                  <p class="modal-text">${email}</p>
+                                  <p class="modal-text cap">${city}</p>
+                                  <hr>
+                                  <p class="modal-text">${phone}</p>
+                                  <p class="modal-text">${fullAddress}</p>
+                                  <p class="modal-text">Birthday: ${dob}</p>
+                                  </div>
+                                  </div>`
+     
+     
+     
     
  
  $("body").append(modalContainerhtml);  
