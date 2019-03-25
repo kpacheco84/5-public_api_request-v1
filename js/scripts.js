@@ -90,9 +90,7 @@ $(".modal-close-btn").on("click", function(){
 //fetch statement
     fetch('https://randomuser.me/api/?nat=us&results=12')
     .then(res => res.json())
-    
     .then(out => out.results)
-    .then( $("#name").text(''))//WHERE SHOULD I REALLY PLACE THIS
     .then((results) =>  getResults(results));
 //end of fetch
       
