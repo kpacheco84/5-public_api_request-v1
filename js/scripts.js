@@ -6,26 +6,30 @@
   
   //add each result to card
   $.each(results,function(i,item){
-    const name = item.name.first+','+item.name.last;
+    const name = item.name.first+', '+item.name.last;
     const email = item.email;
-    const cityState = item.location.city +','+ item.location.state;
+    const cityState = item.location.city +', '+ item.location.state;
     const city = item.location.city
     const pictureLrg = item.picture.large;
     const phone = item.phone;
-    const fullAddress = item.location;
-  
-    
-    const dob = item.dob;
+    const fullAddress = item.location.street +' '+ item.location.city +', '+ item.location.state;
+
+
+
+    //convert date to correct format
+    const date = "2010-10-30T00:00:00+05:30".slice(0, 10).split('-');   
+    const dob = date[1] +'/'+ date[2] +'/'+ date[0];
+               
 
     const cardGallery = $(".gallery");
 
-    
+   
       
     Cardhtml     =   `<div id = "card-${[i]}" class="card"><div class="card-img-container">
                       <img class="card-img" src="${pictureLrg}" alt="profile picture"></div>       
                       <div class="card-info-container">
                       <h3 id="name" class="card-name cap">${name}</h3>
-                      <p class="card-text">${email}'</p><p class="card-text cap">${cityState}</p>
+                      <p class="card-text">${email}</p><p class="card-text cap">${cityState}</p>
                       </div>
                       </div>
                       </div> `  
@@ -46,7 +50,7 @@
                                   <p class="modal-text cap">${city}</p>
                                   <hr>
                                   <p class="modal-text">${phone}</p>
-                                  <p class="modal-text">${fullAddress}</p>
+                                  <p class="modal-text cap">${fullAddress}</p>
                                   <p class="modal-text">Birthday: ${dob}</p>
                                   </div>
                                   </div>`
