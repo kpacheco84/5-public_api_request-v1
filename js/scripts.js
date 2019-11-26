@@ -12,7 +12,7 @@
     const city = item.location.city
     const pictureLrg = item.picture.large;
     const phone = item.phone;
-    const fullAddress = item.location.street +' '+ item.location.city +', '+ item.location.state;
+    const fullAddress = item.location.street.number +' '+ item.location.city +', '+ item.location.state;
 
 
 
